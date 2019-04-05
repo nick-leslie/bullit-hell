@@ -30,11 +30,11 @@ public class playerHealth : MonoBehaviour {
             {
                 allenemys[i].GetComponent<enemy>().edeath();
             }
-            for (int i = 0; i < spawner.Length; i++)
-            {
-                spawner[i].GetComponent<enemyspawner>().spawngo=false;
-            }
-            Respawner.GetComponent<respawn>().buttonappers();
+       //     for (int i = 0; i < spawner.Length; i++)
+         //   {
+           //     spawner[i].GetComponent<enemyspawner>().spawngo=false;
+           // }
+           // Respawner.GetComponent<respawn>().buttonappers();
             cam.GetComponent<camcontroler>().stopfollow();
             alive = false;
             if (alive == false)

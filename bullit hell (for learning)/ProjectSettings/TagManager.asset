@@ -15,6 +15,7 @@ TagManager:
   - pspawner
   - Rspawnpoint
   - rooms
+  - wall
   layers:
   - Default
   - TransparentFX
