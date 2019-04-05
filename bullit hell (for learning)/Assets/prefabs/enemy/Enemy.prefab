@@ -100,7 +100,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 2
   m_Sprite: {fileID: 21300000, guid: 164efdf586edd4cd3a488e700909adb3, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -125,7 +125,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 1
-  speed: 20
+  speed: 100
   damage: 1
   whatisplayer:
     serializedVersion: 2
@@ -134,6 +134,10 @@ MonoBehaviour:
   attackpos: {fileID: 4310634207316688}
   alive: 0
   loweramount: 1
+  state: 
+  maxdistensAway: 162
+  estayaway: 5
+  enemys: []
 --- !u!61 &61567903525463550
 BoxCollider2D:
   m_ObjectHideFlags: 0

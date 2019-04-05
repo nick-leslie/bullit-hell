@@ -14,37 +14,36 @@ public class enemySpawer : MonoBehaviour
     public Tilemap rocks;
     public GameObject enemy;
     public int enemyamount;
+    public int amountofruns;
     // Start is called before the first frame update
     void Start()
     {
+
 
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (spawn == false)
+        if (spawn == true)
         {
-            randompos();
-            enemyamount = Random.Range(1, 10);
-            for (int i = 0; i < enemyamount; i++)
+            for (int g = 0; g < amountofruns; g++)
             {
+                randompos();
                 enemyamount = Random.Range(1, 10);
-                Instantiate(enemy, transform.position + new Vector3(Random.Range(-20,20), Random.Range(-20, 20), 0), transform.rotation);
+                for (int i = 0; i < enemyamount; i++)
+                {
+                    enemyamount = Random.Range(1, 10);
+                    Instantiate(enemy, transform.position + new Vector3(Random.Range(-20, 20), Random.Range(-20, 20), 0), transform.rotation);
 
+                }
             }
-            spawn = true;
-        }
-        if (Input.GetKey(KeyCode.G))
-        {
             spawn = false;
-
         }
-
     }
-    public void OnTriggerStay2D(Collider2D other)
+    public void OnCollisionEnter2D(Collision2D other)
     {
-      //  Debug.Log("fuck dude");
+
         if (other.gameObject.CompareTag("wall"))
         {
             randompos();

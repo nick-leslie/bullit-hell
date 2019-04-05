@@ -18,8 +18,12 @@ public class enemy : MonoBehaviour {
     // deathstuff
     public bool alive;
     public int loweramount;
+    //----------------------------
+    public string state;
+    public int maxdistensAway;
+    public int estayaway;
+    public GameObject[] enemys;
 	void Start () {
-      
         player = GameObject.FindWithTag("Player");
         ptarget = player.GetComponent<Transform>();
         Physics2D.IgnoreCollision(player.GetComponent<Collider2D>(), GetComponent<Collider2D>());
@@ -27,9 +31,26 @@ public class enemy : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+        //---------------------
+        enemys = GameObject.FindGameObjectsWithTag("Enemy");
+        for (int i = 0; i < enemys.Length; i++)
+        {
+            if (Vector2.Distance(transform.position, enemys[i].GetComponent<Transform>().position)< estayaway)
+            {
+                transform.position = Vector2.MoveTowards(transform.position, ptarget.position, -7 * Time.deltaTime);
+            }
+        }
+       
+        //---------------------
+        if (Vector2.Distance(transform.position,ptarget.position) < maxdistensAway )
+        {
+            state = "chase";
+        }
 
-        transform.position = Vector2.MoveTowards(transform.position, ptarget.position, speed * Time.deltaTime);
-
+        if (state == ("chase"))
+        {
+            transform.position = Vector2.MoveTowards(transform.position, ptarget.position, speed * Time.deltaTime);
+        }
 
         Collider2D[] playerstodamage = Physics2D.OverlapCircleAll(attackpos.position, attackrange, whatisplayer);
         for (int i = 0; i < playerstodamage.Length; i++)

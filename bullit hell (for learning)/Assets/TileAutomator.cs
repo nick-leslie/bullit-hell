@@ -29,6 +29,15 @@ public class TileAutomator : MonoBehaviour
     public int width;
     public int hight;
 
+    public int amountofruns;
+    public void Start()
+    {
+        for (int i = 0; i <  amountofruns; i++)
+        {
+            doSim(numberRep);
+        }
+       
+    }
     public void doSim(int nummberRep) 
     {
         clearMap(false);
@@ -121,10 +130,10 @@ public class TileAutomator : MonoBehaviour
    
     void Update()
     {
-      if (Input.GetKeyDown(KeyCode.G))
-        {
-            doSim(numberRep);
-        }
+     // if (Input.GetKeyDown(KeyCode.G))
+       // {
+         //   doSim(numberRep);
+        //}
       if (Input.GetKeyDown(KeyCode.C))
         {
             clearMap(true);
