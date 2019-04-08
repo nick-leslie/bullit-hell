@@ -136,8 +136,10 @@ MonoBehaviour:
   loweramount: 1
   state: 
   maxdistensAway: 162
-  estayaway: 5
+  estayaway: 10
   enemys: []
+  AmmoChance: 0
+  Ammo: {fileID: 1379142832311906, guid: e7af0e1423aca4e83841f77a5209eeb2, type: 3}
 --- !u!61 &61567903525463550
 BoxCollider2D:
   m_ObjectHideFlags: 0

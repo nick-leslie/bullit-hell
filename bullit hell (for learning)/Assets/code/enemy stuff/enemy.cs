@@ -21,23 +21,34 @@ public class enemy : MonoBehaviour {
     //----------------------------
     public string state;
     public int maxdistensAway;
-    public int estayaway;
+    public float estayaway;
     public GameObject[] enemys;
+    //----------------------------
+    public int SpawnChance;
+    public GameObject Ammo;
+    public int weponchance;
+    public GameObject[] wepons;
+
 	void Start () {
         player = GameObject.FindWithTag("Player");
         ptarget = player.GetComponent<Transform>();
-        Physics2D.IgnoreCollision(player.GetComponent<Collider2D>(), GetComponent<Collider2D>());
+        //------------------------s
+        SpawnChance = Random.Range(1, 100);
+        weponchance = Random.Range(0,wepons.Length);
 	}
 	
-	// Update is called once per frame
+	// Update is called once per frames
 	void Update () {
         //---------------------
         enemys = GameObject.FindGameObjectsWithTag("Enemy");
         for (int i = 0; i < enemys.Length; i++)
         {
-            if (Vector2.Distance(transform.position, enemys[i].GetComponent<Transform>().position)< estayaway)
+            if (enemys[i] != this.gameObject)
             {
-                transform.position = Vector2.MoveTowards(transform.position, ptarget.position, -7 * Time.deltaTime);
+                if (Vector2.Distance(transform.position, enemys[i].GetComponent<Transform>().position) < estayaway)
+                {
+                    transform.position = Vector2.MoveTowards(transform.position, ptarget.position, Random.Range(-estayaway,0) * Time.deltaTime);
+                }
             }
         }
        
@@ -74,13 +85,34 @@ public class enemy : MonoBehaviour {
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(attackpos.position, attackrange);
     }
+    //-----------------------
     public void edeath()
     {
+        if (SpawnChance <26)
+        {
+            Instantiate(Ammo, transform.position, transform.rotation);
+        } else if (SpawnChance < 13) 
+        {
+            Instantiate(wepons[weponchance], transform.position, transform.rotation);
+        }
+
         player.GetComponent<playermovement>().Rage=true;
         alive = false;
         if (alive == false)
         {
             Destroy(gameObject);
+        }
+    }
+    //---------------------------
+    public void OnCollisionEnter2D(Collision2D other)
+    {
+        if (other.gameObject.CompareTag("Player"))
+        {
+            Physics2D.IgnoreCollision(player.GetComponent<Collider2D>(), GetComponent<Collider2D>(), true);
+        }
+        else
+        {
+            Physics2D.IgnoreCollision(player.GetComponent<Collider2D>(), GetComponent<Collider2D>(), false);
         }
     }
 }
