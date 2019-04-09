@@ -11,6 +11,7 @@ public class playerHealth : MonoBehaviour {
     private GameObject player;
     private GameObject cam;
     public GameObject Respawner;
+    private GameObject sceanManiger;
 	void Start () {
        
         spawner = GameObject.FindGameObjectsWithTag("espawner");
@@ -30,11 +31,12 @@ public class playerHealth : MonoBehaviour {
             {
                 allenemys[i].GetComponent<enemy>().edeath();
             }
-       //     for (int i = 0; i < spawner.Length; i++)
-         //   {
-           //     spawner[i].GetComponent<enemyspawner>().spawngo=false;
-           // }
-           // Respawner.GetComponent<respawn>().buttonappers();
+            //     for (int i = 0; i < spawner.Length; i++)
+            //   {
+            //     spawner[i].GetComponent<enemyspawner>().spawngo=false;
+            // }
+            sceanManiger = GameObject.FindWithTag("scean swaper");
+            sceanManiger.GetComponent<SeenManager>().back();
             cam.GetComponent<camcontroler>().stopfollow();
             alive = false;
             if (alive == false)

@@ -6,23 +6,31 @@ public class WeponPickup : MonoBehaviour {
     public GameObject player;
     public GameObject pickupwepon;
     public bool death=false;
-	// Use this for initialization
-	void Start () {
+    public bool grabable = false;
+    // Use this for initialization
+    void Start () {
 
-	}
-	
-	// Update is called once per frame
-	void Update () {
+    }
+    
+    // Update is called once per frame
+    void Update () {
         player = GameObject.FindWithTag("Player");
         if (death)
         {
             Destroy(gameObject);
         }
+        if (player != null)
+        {
+            grabable = true;
+        }
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        grabwepon();
-        death = true;
+        if (grabable == true)
+        {
+            grabwepon();
+            death = true;
+        }
     }
     public void grabwepon()
     {

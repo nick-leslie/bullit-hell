@@ -16,6 +16,7 @@ TagManager:
   - Rspawnpoint
   - rooms
   - wall
+  - scean swaper
   layers:
   - Default
   - TransparentFX

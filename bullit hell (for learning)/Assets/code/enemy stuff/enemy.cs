@@ -91,7 +91,8 @@ public class enemy : MonoBehaviour {
         if (SpawnChance <26)
         {
             Instantiate(Ammo, transform.position, transform.rotation);
-        } else if (SpawnChance < 13) 
+        } 
+        if (SpawnChance < 13) 
         {
             Instantiate(wepons[weponchance], transform.position, transform.rotation);
         }
