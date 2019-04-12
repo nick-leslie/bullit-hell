@@ -1,0 +1,3 @@
+  // how to find the position of a cell
+  //Debug.Log(topmap.GetComponent<GridLayout>().WorldToCell(transform.position));
+  //-------------------------------------------------
