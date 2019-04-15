@@ -17,6 +17,7 @@ TagManager:
   - rooms
   - wall
   - scean swaper
+  - rock
   layers:
   - Default
   - TransparentFX

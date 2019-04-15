@@ -112,6 +112,12 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!224 &130371770 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 2016178609905618907, guid: 59574972968534d29afb13332f5f649c,
+    type: 3}
+  m_PrefabInstance: {fileID: 1811673935}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &282229303
 GameObject:
   m_ObjectHideFlags: 0
@@ -122,7 +128,6 @@ GameObject:
   m_Component:
   - component: {fileID: 282229304}
   - component: {fileID: 282229305}
-  - component: {fileID: 282229306}
   m_Layer: 0
   m_Name: enemy spawner
   m_TagString: Untagged
@@ -162,37 +167,17 @@ MonoBehaviour:
   topx: 0
   y: 0
   topy: 0
-  spawn: 1
-  rocks: {fileID: 0}
+  spawn: 0
+  timetillgo: 9.19
+  topmap: {fileID: 1240200342}
   enemy: {fileID: 1840809394434056, guid: eda4d0759fd2b47e4ba4782b5d5631e2, type: 3}
   enemyamount: 0
   amountofruns: 20
---- !u!61 &282229306
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 282229303}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 18.057367, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 11.671986, y: 11.429378}
-  m_EdgeRadius: 0
+  distence: 3
+  thigstohit:
+    serializedVersion: 2
+    m_Bits: 1024
+  goodToGo: 0
 --- !u!1 &366071929
 GameObject:
   m_ObjectHideFlags: 0
@@ -419,9 +404,9 @@ GameObject:
   - component: {fileID: 1240200342}
   - component: {fileID: 1240200341}
   - component: {fileID: 1240200343}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: topmap
-  m_TagString: wall
+  m_TagString: rock
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -815,3 +800,84 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f01d1b8c8cf434f2cbd92232614aa741, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  frameCounter: {fileID: 0}
+  framerate: 0
+--- !u!1 &2140089022
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2140089023}
+  - component: {fileID: 2140089025}
+  - component: {fileID: 2140089024}
+  m_Layer: 9
+  m_Name: frameCounter
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &2140089023
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2140089022}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 130371770}
+  m_RootOrder: 15
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 64.8, y: 85}
+  m_SizeDelta: {x: 129.6, y: 14.8}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &2140089024
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2140089022}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_FontData:
+    m_Font: {fileID: 12800000, guid: 907740059554c40c5a218e734dea776e, type: 3}
+    m_FontSize: 11
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 5
+    m_MaxSize: 186
+    m_Alignment: 0
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: 'frame rate:'
+--- !u!222 &2140089025
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2140089022}
+  m_CullTransparentMesh: 0

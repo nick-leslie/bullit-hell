@@ -19,6 +19,10 @@ public class bullet : MonoBehaviour {
         RaycastHit2D hitinfo = Physics2D.Raycast(transform.position, transform.right, distence, thigstohit);
         if (hitinfo.collider != null)
         {
+            if (hitinfo.collider.CompareTag("rock"))
+            {
+                Debug.Log("damm it");
+            }
             if (hitinfo.collider.CompareTag("Enemy"))
             {
                hitinfo.collider.GetComponent<enemy>().lowerhealth(damage);
