@@ -79,7 +79,7 @@ public class enemySpawer : MonoBehaviour
             Instantiate(enemy, transform.position + new Vector3(Random.Range(-20, 20), Random.Range(-20, 20), 0), transform.rotation);
 
         }
-      ///  goodToGo = false;
+        goodToGo = false;
     }
 
       
